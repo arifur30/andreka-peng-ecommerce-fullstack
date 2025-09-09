@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="icon" href="{% static 'andreka-2.ico' %}">
+</head>
+<body>
+    <section id="header">
+        <h3 style="font-size: 40px; font-weight: 500; font-family: Italianno; margin: 0; position: relative; right: -89px;">Andreka & Peng.</h3>
+        <div>
+            <ul id="navbar">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <main class="section-p1">
+        <h2>Welcome, {{ request.user.username }}!</h2>
+        <p>This is your dashboard.</p>
+    </main>
+</body>
+</html>
+

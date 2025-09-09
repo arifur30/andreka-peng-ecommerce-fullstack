@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #f5f3ef;
+    font-family: "Montserrat", sans-serif;
+}
+
+.auth-wrapper {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 440px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    padding: 28px 28px 22px 28px;
+}
+
+.auth-logo {
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+.auth-logo img {
+    height: 48px;
+}
+
+.auth-title {
+    margin: 6px 0 16px 0;
+    text-align: center;
+    font-size: 26px;
+    font-weight: 600;
+    color: #2f2a25;
+}
+
+.auth-subtitle {
+    margin: 0 0 22px 0;
+    text-align: center;
+    font-size: 13px;
+    color: #7a736c;
+}
+
+.auth-form label {
+    display: block;
+    font-size: 13px;
+    color: #4d453e;
+    margin-bottom: 6px;
+}
+
+.auth-form input[type="text"],
+.auth-form input[type="password"],
+.auth-form input[type="email"],
+.auth-form input[type="number"],
+.auth-form select,
+.auth-form textarea {
+    width: 100%;
+    padding: 12px 12px;
+    border: 1px solid #e5ded6;
+    border-radius: 10px;
+    background: #fcfbf9;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    margin-bottom: 14px;
+    font-size: 14px;
+}
+
+.auth-form input:focus,
+.auth-form select:focus,
+.auth-form textarea:focus {
+    border-color: #bfa788;
+    box-shadow: 0 0 0 3px rgba(191, 167, 136, 0.18);
+}
+
+.auth-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.auth-submit {
+    width: 100%;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(to right, #EDE9E2, #d4c4a9);
+    color: #2f2a25;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.auth-submit:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+}
+
+.auth-footer {
+    margin-top: 14px;
+    text-align: center;
+    font-size: 13px;
+    color: #6a635c;
+}
+
+.auth-footer a {
+    color: #2f2a25;
+    text-decoration: underline;
+}
+
+.helptext {
+    font-size: 11px;
+    color: #8b837b;
+    margin: -6px 0 10px 0;
+}
+
+.errorlist {
+    margin: 0 0 10px 0;
+    padding: 0;
+    list-style: none;
+    color: #a33a2f;
+    font-size: 12px;
+}

@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="icon" href="{% static 'andreka-2.ico' %}">
+</head>
+<body>
+    <section id="header">
+        <h3 style="font-size: 40px; font-weight: 500; font-family: Italianno; margin: 0; position: relative; right: -89px;">Andreka & Peng.</h3>
+    </section>
+    <main class="section-p1">
+        <h2>Create an account</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="normal" type="submit">Create account</button>
+        </form>
+        <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+    </main>
+</body>
+</html>
+

@@ -1,0 +1,276 @@
+#header {
+    /* CSS properties */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 80px;
+    background-color: #ffffff;
+    box-shadow: 0 5 15px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+.head1
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10px;
+    flex-direction: row;
+}
+
+#navbar{
+    font-family:'Lexend', sans-serif;
+    font-size: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#navbar .section-h1
+{
+    
+    padding: 0 20px 0 20px;
+    margin: 0px 0px 0px 0;
+
+}
+#navbar li {
+    
+    list-style: none;
+    padding: 0px 40px;
+    position: relative;
+    
+}
+
+#navbar li a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #55504B;
+    transition: 0.2s ease;
+}
+
+#navbar li a:hover{
+    color:rgb(0, 0, 0)
+    
+}
+
+#navbar li a:hover,
+#navbar li a.active{
+    color:rgb(45, 29, 10)
+}
+#navbar li a.active::after,
+#navbar li a:hover::after
+{
+    content: "";
+    width: 30%;
+    height: 2px;
+    background-color: #55504B;
+    position: absolute;
+    bottom: -4px;
+    left: 35%;
+}
+
+.search-container {
+    position: relative;
+  }
+
+  .search-input {
+    padding: 8px 30px 8px 10px;
+    border: none;
+    width: 200px;
+  }
+
+  .search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    cursor: pointer;
+  }
+  #hero h1 {
+    font-size: 60px;
+    margin: 15px 0 0 0;
+    padding: 25px 55px;
+    font-weight: 400;
+    color: #000000;
+    padding-bottom: 5px;
+    font-family: "Archivo Black", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: left;
+    transition: color 0.3s; /* Adding transition for a smoother effect */
+}
+#hero .texts h1{
+    
+    color:#ffffff;
+}
+
+#hero .texts p{
+    
+    color:#ffffff;
+    font-family:'Lexend', sans-serif;
+    font-size: 15px;
+    padding: 25px 55px;
+}
+
+.shop-now-button {
+    position: relative;
+    top: 35px;
+    left: 55px;
+    display: inline-block;
+    padding: 10px 15px;
+    font-family: "Archivo Black", sans-serif;
+    font-style: normal;
+    font-size: 15px;
+    font-weight: 90px;
+    
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    color: #ffffff;
+  /*  background: linear-gradient(to right, #EDE9E2, #e0e0e0cc); */
+    background: transparent;  
+    box-shadow: 0 2px 6px rgb(255, 255, 255);
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+ 
+
+}
+
+  /* Hover state */
+  .shop-now-button:hover {
+    background: linear-gradient(to right, #ffffff, #edede8);
+    transform: scale(1.05);
+    color:rgb(0, 0, 0);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Pressed state */
+  .shop-now-button:active {
+    background: linear-gradient(to right, #deeaf3, #dad9d8);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  #hero .hero-pic{
+    background-image: url("sneakers/bg-1.png") ;
+        
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between
+  }
+
+  #hero .hpic{
+    padding: 48px 70px 0px 0px;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+
+  }
+
+  #hero .hpic:hover
+  {
+    transform: scale(1.05);
+  }
+
+  footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 50px;
+}
+
+footer .col{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+footer p{
+    font-size: 13px;
+    margin: 0 0 8px 0;
+    text-decoration: none;
+    font-family:"Montserrat", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+footer li a{
+    font-size: 13px;
+    margin: 0 0 8px 0;
+    text-decoration: none;
+    font-family:"Montserrat", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: black;
+
+    transition: text-decoration color 0.3s;
+}
+
+footer h4{
+
+    font-size: 20px;
+    margin: 0 0 8px 0;
+    text-decoration: none;
+    font-family:"Montserrat", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    
+}
+
+.logo {
+        text-align: center;
+        margin: 20px;
+    }
+
+.logo img {
+        width: 200px;
+        height: auto;
+    }
+
+
+footer .Follow{
+    margin-top: 10px;
+}
+
+footer .Follow i{
+    color:rgb(46, 46, 45);
+    padding-right: 4px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+footer .install .row img{
+
+    border: 1px solid black;
+    border-radius: 8 px;
+}
+
+footer .install img{
+    margin: 10px 0 15px 0;
+
+}
+
+.Follow i:hover {
+    color: red;
+}
+
+footer a:hover {
+    color: rgb(8, 141, 203);
+    text-decoration: underline;
+}
+
+footer .copyright{
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 13px;
+    font-family:"Montserrat", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}

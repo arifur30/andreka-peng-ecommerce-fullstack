@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Order Placed</title>
+    <link rel="icon" href="{% static 'andreka-2.ico' %}">
+    <link rel="icon" href="https://yt3.ggpht.com/a/AGF-l78km1YyNXmF0r3-0CycCA0HLA_i6zYn_8NZEg=s900-c-k-c0xffffffff-no-rj-mo" type="image/gif" sizes="16x16">
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/4a3b1f73a2.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'orderPlaced.css' %}">
+
+    <script src="https://kit.fontawesome.com/5fa60f8449.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Josefin+Sans:wght@500;600&family=Libre+Baskerville:wght@400;700&family=Protest+Strike&family=Roboto+Slab:wght@100;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Josefin+Sans:wght@500;600&family=Libre+Baskerville:wght@400;700&family=Protest+Revolution&family=Protest+Strike&family=Roboto+Slab:wght@100;600&family=Archivo+Black&family=Archivo+Black&family=Italianno&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Lexend:wght@516&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+</head>
+
+<body>
+    <div class="fullbody">
+        <section id = "header">
+            <h3 style="font-size: 40px; font-weight: 500; font-family: Italianno; font-style:normal; margin: 0;    position: relative;
+            right: -89px;">Andreka &  Peng.</h3>
+            <div>
+                <ul id = "navbar">
+                    <li><a href = "{% url 'home' %}" class="active">Home</a></li>
+                    <li><a href = "blog.html">Blog</a></li>
+                    <li><a href = "about.html">About</a></li>
+                    <li><a href = "services.html">Services</a></li>
+                    <li><a href = "{% url 'contact' %}">Contact</a></li>
+                    <li><a href = "{% url 'cart' %}"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                    <li><a href="#"><i id="close"  class="fas fa-times"></i></a></li>
+                    
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="Search">
+                        <span class="material-symbols-outlined" style="    position: relative;
+                        top: 11px;">
+                            search
+                            </span>
+                      </div>
+                </ul>
+            </div>
+            <div class="mobile">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <i id="menu" class="fas fa-bars"></i>
+            </div>
+        </section>
+
+        <div id="orderContainer">
+            <div id="check"><i class="fas fa-check-circle"></i></div>
+            
+            <div id="aboutCheck">
+                <h1> Order Placed Successfully! </h1>
+                <p> We've sent you an email with the Order details. </p>
+            </div>
+        </div>
+
+        <section id = "newsletter"  class = "section-p1">
+    
+            <div class = "newstext">
+                <h4>Sign Up for Newsletter</h4>
+                <p>Get E-mail updates about our latest shop and <span style="color: rgb(240, 240, 144);">special offers.</span></p>
+            </div>
+    
+            <div class="form">
+                <input type="text" placeholder="Enter your email">
+                <button class = "banner-button">Sign Up</button>
+            </div>
+    
+        </section>
+    
+        <footer class = "section-p1">
+            <div class="col"> 
+                <div class="logo">
+                    <img src="{% static 'logo-2.png' %}" alt="">
+                </div>
+                <h4>Contact</h4>
+                <p><strong>Address: </strong>920 Port Connecting Road, Chittagong Street, Bangladesh</p>
+                <p><strong>Phone: </strong>+880 123 456 789</p>
+                <p><strong>Hours: </strong> 10.00 - 18.00, Mon - Sat</p>
+            </div>
+    
+            <div class = "Follow">
+                <h4>Follow us</h4>
+                <div class="icon">
+                    <a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+    
+            <div class="col">
+                <h4>About</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+    
+            </div>
+    
+            <div class="col">
+                <h4>My Account</h4>
+                <ul>
+                    <li><a href="#">Sign In</a></li>
+                    <li><a href="#">View Cart</a></li>
+                    <li><a href="#">Order History</a></li>
+                    <li><a href="#">Wishlist</a></li>
+                    <li><a href="#">Newsletter</a></li>
+    
+            </div>
+    
+            <div class="col install">
+                <h4>Install App</h4>
+                <p>From App Store or Google Play Store</p>
+                <div class="row">
+                    <img src="{% static 'pay/play.jpg' %}" alt="">
+                    <img src="{% static 'pay/app.jpg' %}" alt="">
+                </div>
+                <p>Secured payment gateway</p>
+                <img src="{% static 'pay/pay.png' %}" alt="">
+            </div>
+    
+            <div class="copyright">
+                <p>&copy; 2024=1 Andreka & Peng. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+</body>

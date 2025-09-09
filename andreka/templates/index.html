@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Andreka & Peng.</title>
+    <link rel="icon" href="{% static 'andreka-2.ico' %}">
+
+    <script src="https://kit.fontawesome.com/5fa60f8449.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Josefin+Sans:wght@500;600&family=Libre+Baskerville:wght@400;700&family=Protest+Strike&family=Roboto+Slab:wght@100;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Josefin+Sans:wght@500;600&family=Libre+Baskerville:wght@400;700&family=Protest+Revolution&family=Protest+Strike&family=Roboto+Slab:wght@100;600&family=Archivo+Black&family=Archivo+Black&family=Italianno&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Lexend:wght@516&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+</head>
+
+<body>
+    <div class="fullbody">
+        <section id = "header">
+            <h3 style="font-size: 40px; font-weight: 500; font-family: Italianno; font-style:normal; margin: 0;    position: relative;
+            right: -89px;">Andreka &  Peng.</h3>
+            <div>
+                <ul id = "navbar">
+                    <li><a href = "{% url 'home' %}" class="active">Home</a></li>
+                    <li><a href = "blog.html">Blog</a></li>
+                    <li><a href = "about.html">About</a></li>
+                    <li><a href = "services.html">Services</a></li>
+                    <li><a href = "{% url 'contact' %}">Contact</a></li>
+                    <li><a href = "{% url 'cart' %}"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                    <li><a href="#"><i id="close"  class="fas fa-times"></i></a></li>
+                    
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="Search">
+                        <span class="material-symbols-outlined" style="    position: relative;
+                        top: 11px;">
+                            search
+                            </span>
+                      </div>
+                </ul>
+            </div>
+            <div class="mobile">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <i id="menu" class="fas fa-bars"></i>
+            </div>
+        </section>
+    
+        <section id = "hero">
+            
+            <div class = "texts">
+                <h4>Perfect your appearance with a Trendy Style.<br> Find your trendy style here</h4>
+            <h1>new<br>Arrival</h1>
+            <p>Save more with coupons & upto 70% Off</p>
+            <a href="#" class="shop-now-button">Shop Now <span class="material-symbols-outlined" style="position: relative;
+                top: 7px;
+                right: -4px;">
+                arrow_forward  </span></a>
+    
+            </div>
+            
+    
+        </section>
+    
+        <section id = "features" class = "section-p1">
+            <div class = "feature-box">
+                <img src="{% static 'feature1.png' %}" alt="" height="60" width = "90">
+                <h3>Free Shipping</h3>
+               
+            </div>
+            <div class = "feature-box">
+                <img src = "{% static 'onlineorder.png' %}" alt="" height="60" width = "90">
+                <h3 style = "font-size: 16px;">Online Order</h3>
+            </div>
+            <div class = "feature-box">
+                <img src = "{% static 'Promotions.png' %}" alt="" height="60" width = "90">
+                <h3 style=" font-size: 18px">Promotions</h3>
+               
+            </div>
+            <div class = "feature-box">
+                <img src = "{% static 'savemoney.png' %}" alt="" height="60" width = "90">
+                <h3>Save Money</h3>
+               
+            </div>
+            <div class = "feature-box">
+                <img src = "{% static 'support.png' %}" alt="" height="60" width = "110">
+                <h3 style="font-size: 18px;">Support</h3>
+               
+            </div>
+            <div class = "featuretext">
+                <h2>Find all of your <br>favourite style</h2>
+                <p>We got everything you need</p>
+            </div>
+            
+        </section>
+    
+        <section id = "product1" class = "section-p1">
+            
+            <div class="pro-container">
+                <div class="pro">
+                    <a href="{% url 'product_detail' %}">
+                        <img src="{% static 'product1.png' %}" alt="">
+                    </a>
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5>Long Black Coats</h5>
+                        <div class="star">
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                        </div>
+                        <h4>$78</h4>
+                    </div>
+                    <a href="#"><span class="material-symbols-outlined cart" style="color: black">
+                        add_shopping_cart
+                        </span></a>
+                    
+                </div>
+                <div class="pro">
+                    <a href="{% url 'product_detail' %}">
+                        <img src="{% static 'product2.png' %}" alt="">
+                    </a>
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5>Long Black Coats</h5>
+                        <div class="star">
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                        </div>
+                        <h4>$78</h4>
+                    </div>
+                    <a href="#"><span class="material-symbols-outlined cart" style="color: black">
+                        add_shopping_cart
+                        </span></a>
+                </div>
+                <div class="pro">
+                    <a href="{% url 'product_detail' %}">
+                        <img src="{% static 'Product3.png' %}" alt="">
+                    </a>
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5>Long Black Coats</h5>
+                        <div class="star">
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                        </div>
+                        <h4>$78</h4>
+                    </div>
+                    <a href="#"><span class="material-symbols-outlined cart" style="color: black">
+                        add_shopping_cart
+                        </span></a>
+                </div>
+                <div class="pro">
+                    <a href="{% url 'product_detail' %}">
+                        <img src="{% static 'Product4.png' %}" alt="">
+                    </a>
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5>Long Black Coats</h5>
+                        <div class="star">
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                        </div>
+                        <h4>$78</h4>
+                    </div>
+                    <a href="#"><span class="material-symbols-outlined cart" style="color: black">
+                        add_shopping_cart
+                        </span></a>
+                </div>
+                <div class="pro">
+                    <a href="{% url 'product_detail' %}">
+                        <img src="{% static 'product5.png' %}" alt="">
+                    </a>
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5>Long Black Coats</h5>
+                        <div class="star">
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                        </div>
+                        <h4>$78</h4>
+                    </div>
+                    <a href="#"><span class="material-symbols-outlined cart" style="color: black">
+                        add_shopping_cart
+                        </span></a>
+                </div>
+                <div class="pro">
+                    <a href="{% url 'product_detail' %}">
+                        <img src="{% static 'product6.png' %}" alt="">
+                    </a>
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5>Long Black Coats</h5>
+                        <div class="star">
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                        </div>
+                        <h4>$78</h4>
+                    </div>
+                    <a href="#"><span class="material-symbols-outlined cart" style="color: black">
+                        add_shopping_cart
+                        </span></a>
+                </div>
+                <div class="pro">
+                    <a href="{% url 'product_detail' %}">
+                        <img src="{% static 'product7.png' %}" alt="">
+                    </a>
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5>Long Black Coats</h5>
+                        <div class="star">
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                        </div>
+                        <h4>$78</h4>
+                    </div>
+                    <a href="#"><span class="material-symbols-outlined cart" style="color: black">
+                        add_shopping_cart
+                        </span></a>
+                </div>
+                <div class="pro">
+                    <a href="{% url 'product_detail' %}">
+                        <img src="{% static 'product8.png' %}" alt="">
+                    </a>
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5>Long Black Coats</h5>
+                        <div class="star">
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                        </div>
+                        <h4>$78</h4>
+                    </div>
+                    <a href="#"><span class="material-symbols-outlined cart" style="color: black">
+                        add_shopping_cart
+                        </span></a>
+                </div>
+            </div>
+    
+    
+            <h2>We have many promo for everyday, don't miss out.<br>Check out now!</h2>
+        </section>
+    
+        <section id= "banner" class="section-m1">
+            <h4>Explore our Men's Collection</h4>
+            <h2>Up to 70% off on All T-shirts and Pants</h2>
+            <a href = "#" ><button class = "normal">Explore More</button></a>
+    
+        </section>
+        
+        <section id = "product1" class = "section-p1">
+            
+            <div class="pro-container">
+                <div class="pro">
+                    <img src="{% static 'product9.png' %}" alt="">
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5>Long Black Coats</h5>
+                        <div class="star">
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                        </div>
+                        <h4>$78</h4>
+                    </div>
+                    <a href="#"><span class="material-symbols-outlined cart" style="color: black">
+                        add_shopping_cart
+                        </span></a>
+                </div>
+                <div class="pro">
+                    <img src="{% static 'product10.png' %}" alt="">
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5>Long Black Coats</h5>
+                        <div class="star">
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                        </div>
+                        <h4>$78</h4>
+                    </div>
+                    <a href="#"><span class="material-symbols-outlined cart" style="color: black">
+                        add_shopping_cart
+                        </span></a>
+                </div>
+                <div class="pro">
+                    <img src="{% static 'product11.png' %}" alt="">
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5>Long Black Coats</h5>
+                        <div class="star">
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                        </div>
+                        <h4>$78</h4>
+                    </div>
+                    <a href="#"><span class="material-symbols-outlined cart" style="color: black">
+                        add_shopping_cart
+                        </span></a>
+                </div>
+                <div class="pro">
+                    <img src="{% static 'product12.png' %}" alt="">
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5>Long Black Coats</h5>
+                        <div class="star">
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                        </div>
+                        <h4>$78</h4>
+                    </div>
+                    <a href="#"><span class="material-symbols-outlined cart" style="color: black">
+                        add_shopping_cart
+                        </span></a>
+                </div>
+                <div class="pro">
+                    <img src="{% static 'product13.png' %}" alt="">
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5>Long Black Coats</h5>
+                        <div class="star">
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                        </div>
+                        <h4>$78</h4>
+                    </div>
+                    <a href="#"><span class="material-symbols-outlined cart" style="color: black">
+                        add_shopping_cart
+                        </span></a>
+                </div>
+                <div class="pro">
+                    <img src="{% static 'product14.png' %}" alt="">
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5>Long Black Coats</h5>
+                        <div class="star">
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                        </div>
+                        <h4>$78</h4>
+                    </div>
+                    <a href="#"><span class="material-symbols-outlined cart" style="color: black">
+                        add_shopping_cart
+                        </span></a>
+                </div>
+                <div class="pro">
+                    <img src="{% static 'product15.png' %}" alt="">
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5>Long Black Coats</h5>
+                        <div class="star">
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                        </div>
+                        <h4>$78</h4>
+                    </div>
+                    <a href="#"><span class="material-symbols-outlined cart" style="color: black">
+                        add_shopping_cart
+                        </span></a>
+                </div>
+                <div class="pro">
+                    <img src="{% static 'product16.png' %}" alt="">
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5>Long Black Coats</h5>
+                        <div class="star">
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                            <i class = "fas fa-star"></i>
+                        </div>
+                        <h4>$78</h4>
+                    </div>
+                    <a href="#"><span class="material-symbols-outlined cart" style="color: black">
+                        add_shopping_cart
+                        </span></a>
+                </div>
+            </div>
+        </section>
+        
+        <section id= "banner" class="section-m1" style="background-image: url({% static 'banner-3.jpeg' %}); height: 30vh;">
+            <h2 id="dark-version">Explore the dark version of clothes</h2>
+    
+        </section>
+        
+        
+        <section id= "smallbanner" >
+            <div class = "banner-box" style = "background-image: url({% static 'sm-banner2.jpg' %});">
+                <h4>Pure Black<br>for Men</h4>
+                <a href = "#" ><button class = "banner-button">Explore More</button></a>
+            </div>
+    
+            <div class = "banner-box" style = "background-image: url({% static 'sm-banner3.jpeg' %});">
+                <h4>Pure Black<br>for Women</h4>
+                <a href = "#" ><button class = "banner-button">Explore More</button></a>
+            </div>
+    
+            <div class = "banner-box" style = "background-image: url({% static 'sm-banner5.jpg' %}); ">
+                <h4 style="font-size: 60px">Headphones</h4>
+                <a href = "#" ><button class = "banner-button">Explore More</button></a>
+            </div>
+    
+            <div class = "banner-box box4" style = "background-image: url({% static 'smbanner-4.png' %}); ">
+                <h4 style= "color: rgb(255, 255, 255);">Top Notch</h4>
+                <h4 style= "color: black;">Sneakers</h4>
+                <a href = "{% url 'sneakers' %}" ><button class = "banner-button" style="border: 1px solid #000000; box-shadow: 0 2px 6px rgb(0, 0, 0); color: black;">Explore More</button></a>
+            </div>
+            
+        </section>
+    
+        <section id = "newsletter"  class = "section-p1">
+    
+            <div class = "newstext">
+                <h4>Sign Up for Newsletter</h4>
+                <p>Get E-mail updates about our latest shop and <span style="color: rgb(240, 240, 144);">special offers.</span></p>
+            </div>
+    
+            <div class="form">
+                <input type="text" placeholder="Enter your email">
+                <button class = "banner-button">Sign Up</button>
+            </div>
+    
+        </section>
+    
+        <footer class = "section-p1">
+            <div class="col"> 
+                <div class="logo">
+                    <img src="{% static 'logo-2.png' %}" alt="">
+                </div>
+                <h4>Contact</h4>
+                <p><strong>Address: </strong>920 Port Connecting Road, Chittagong Street, Bangladesh</p>
+                <p><strong>Phone: </strong>+880 123 456 789</p>
+                <p><strong>Hours: </strong> 10.00 - 18.00, Mon - Sat</p>
+            </div>
+    
+            <div class = "Follow">
+                <h4>Follow us</h4>
+                <div class="icon">
+                    <a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+    
+            <div class="col">
+                <h4>About</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+    
+            </div>
+    
+            <div class="col">
+                <h4>My Account</h4>
+                <ul>
+                    <li><a href="#">Sign In</a></li>
+                    <li><a href="#">View Cart</a></li>
+                    <li><a href="#">Order History</a></li>
+                    <li><a href="#">Wishlist</a></li>
+                    <li><a href="#">Newsletter</a></li>
+    
+            </div>
+    
+            <div class="col install">
+                <h4>Install App</h4>
+                <p>From App Store or Google Play Store</p>
+                <div class="row">
+                    <img src="{% static 'pay/play.jpg' %}" alt="">
+                    <img src="{% static 'pay/app.jpg' %}" alt="">
+                </div>
+                <p>Secured payment gateway</p>
+                <img src="{% static 'pay/pay.png' %}" alt="">
+            </div>
+    
+            <div class="copyright">
+                <p>&copy; 2024=1 Andreka & Peng. All rights reserved.</p>
+            </div>
+        </footer>
+    
+    </div>
+
+
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>
