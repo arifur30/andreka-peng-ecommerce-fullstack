@@ -4,25 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Dashboard - Andreka & Peng</title>
+    <link rel="stylesheet" href="{% static 'auth.css' %}">
     <link rel="icon" href="{% static 'andreka-2.ico' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <section id="header">
-        <h3 style="font-size: 40px; font-weight: 500; font-family: Italianno; margin: 0; position: relative; right: -89px;">Andreka & Peng.</h3>
-        <div>
-            <ul id="navbar">
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'logout' %}">Logout</a></li>
-            </ul>
+    <div class="auth-wrapper">
+        <div class="auth-card">
+            <div class="auth-logo">
+                <img src="{% static 'logo-2.png' %}" alt="Andreka & Peng">
+            </div>
+            <h1 class="auth-title">Welcome, {{ user.username }}!</h1>
+            <p class="auth-subtitle">Your personalized shopping dashboard</p>
+            
+            <div class="auth-form">
+                <div style="text-align: center; margin: 20px 0;">
+                    <p style="color: #4d453e; margin-bottom: 20px;">This is your personalized dashboard where you can manage your account and view your orders.</p>
+                    
+                    <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                        <a href="{% url 'profile' %}" class="auth-submit" style="text-decoration: none; display: inline-block; padding: 12px 24px; background: linear-gradient(to right, #EDE9E2, #d4c4a9); color: #2f2a25; border-radius: 10px; font-weight: 600; transition: transform 0.15s ease;">View Profile</a>
+                        <a href="{% url 'home' %}" class="auth-submit" style="text-decoration: none; display: inline-block; padding: 12px 24px; background: linear-gradient(to right, #f5f3ef, #e5ded6); color: #2f2a25; border-radius: 10px; font-weight: 600; transition: transform 0.15s ease;">Continue Shopping</a>
+                        <a href="{% url 'logout' %}" class="auth-submit" style="text-decoration: none; display: inline-block; padding: 12px 24px; background: linear-gradient(to right, #f5f3ef, #e5ded6); color: #2f2a25; border-radius: 10px; font-weight: 600; transition: transform 0.15s ease;">Logout</a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
-
-    <main class="section-p1">
-        <h2>Welcome, {{ request.user.username }}!</h2>
-        <p>This is your dashboard.</p>
-    </main>
+    </div>
 </body>
 </html>
 

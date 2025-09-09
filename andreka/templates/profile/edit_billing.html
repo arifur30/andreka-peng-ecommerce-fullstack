@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Billing Information - Andreka & Peng</title>
+    <link rel="stylesheet" href="{% static 'auth.css' %}">
+    <link rel="icon" href="{% static 'andreka-2.ico' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #2f2a25;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-btn:hover {
+            text-decoration: underline;
+            color: #2f2a25;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-wrapper">
+        <div class="auth-card" style="max-width: 600px;">
+            <div class="auth-logo">
+                <img src="{% static 'logo-2.png' %}" alt="Andreka & Peng">
+            </div>
+            <h1 class="auth-title">Edit Billing Information</h1>
+            <p class="auth-subtitle">Update your billing details for orders</p>
+            
+            <div class="form-container">
+                <a href="{% url 'profile' %}" class="back-btn">← Back to Profile</a>
+                
+                {% if messages %}
+                    {% for message in messages %}
+                        <div style="background: #d4edda; color: #155724; padding: 10px; border-radius: 8px; margin-bottom: 20px;">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                
+                <form class="auth-form" method="post">
+                    {% csrf_token %}
+                    
+                    <div class="form-row">
+                        <div>
+                            <label for="billing_first_name">First Name</label>
+                            <input type="text" id="billing_first_name" name="billing_first_name" value="{{ profile.billing_first_name }}" placeholder="Enter billing first name">
+                        </div>
+                        <div>
+                            <label for="billing_last_name">Last Name</label>
+                            <input type="text" id="billing_last_name" name="billing_last_name" value="{{ profile.billing_last_name }}" placeholder="Enter billing last name">
+                        </div>
+                    </div>
+                    
+                    <label for="billing_email">Billing Email</label>
+                    <input type="email" id="billing_email" name="billing_email" value="{{ profile.billing_email }}" placeholder="Enter billing email address">
+                    
+                    <label for="billing_phone">Billing Phone</label>
+                    <input type="tel" id="billing_phone" name="billing_phone" value="{{ profile.billing_phone }}" placeholder="Enter billing phone number">
+                    
+                    <button class="auth-submit" type="submit">Update Billing Information</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

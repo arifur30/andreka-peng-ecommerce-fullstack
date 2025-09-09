@@ -4,24 +4,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Login - Andreka & Peng</title>
+    <link rel="stylesheet" href="{% static 'auth.css' %}">
     <link rel="icon" href="{% static 'andreka-2.ico' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <section id="header">
-        <h3 style="font-size: 40px; font-weight: 500; font-family: Italianno; margin: 0; position: relative; right: -89px;">Andreka & Peng.</h3>
-    </section>
-
-    <main class="section-p1">
-        <h2>Login</h2>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button class="normal" type="submit">Login</button>
-        </form>
-        <p>Don't have an account? <a href="{% url 'signup' %}">Sign up</a></p>
-    </main>
+    <div class="auth-wrapper">
+        <div class="auth-card">
+            <div class="auth-logo">
+                <img src="{% static 'logo-2.png' %}" alt="Andreka & Peng">
+            </div>
+            <h1 class="auth-title">Welcome Back</h1>
+            <p class="auth-subtitle">Sign in to your account to continue shopping</p>
+            
+            <form class="auth-form" method="post">
+                {% csrf_token %}
+                {% if form.errors %}
+                    <ul class="errorlist">
+                        {% for field, errors in form.errors.items %}
+                            {% for error in errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                
+                <label for="{{ form.username.id_for_label }}">Username</label>
+                {{ form.username }}
+                {% if form.username.help_text %}
+                    <div class="helptext">{{ form.username.help_text }}</div>
+                {% endif %}
+                
+                <label for="{{ form.password.id_for_label }}">Password</label>
+                {{ form.password }}
+                {% if form.password.help_text %}
+                    <div class="helptext">{{ form.password.help_text }}</div>
+                {% endif %}
+                
+                <button class="auth-submit" type="submit">Sign In</button>
+            </form>
+            
+            <div class="auth-footer">
+                Don't have an account? <a href="{% url 'signup' %}">Sign up here</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
 
