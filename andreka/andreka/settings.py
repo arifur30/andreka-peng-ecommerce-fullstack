@@ -135,3 +135,17 @@ LOGIN_URL = 'login'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# SSLCOMMERZ Payment Gateway Configuration
+SSLCOMMERZ_SANDBOX_MODE = True  # Set to False for production
+
+# Sandbox Credentials (for testing)
+SSLCOMMERZ_SANDBOX_STORE_ID = 'andre68c98db48ae54'
+SSLCOMMERZ_SANDBOX_STORE_PASSWORD = 'andre68c98db48ae54@ssl'
+
+# Production Credentials (replace with your actual credentials)
+SSLCOMMERZ_STORE_ID = 'andre68c98db48ae54'
+SSLCOMMERZ_STORE_PASSWORD = 'andre68c98db48ae54@ssl'
+
+# Base URL for callbacks
+BASE_URL = 'http://localhost:8000'  # Change this to your domain in production

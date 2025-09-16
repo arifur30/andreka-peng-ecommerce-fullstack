@@ -1,0 +1,517 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ post.title }} - Andreka Fashion Blog{% endblock %}
+
+{% block styles %}
+<style>
+/* Blog Detail Styles */
+.blog-detail-hero {
+    background: linear-gradient(135deg, #000 0%, #333 100%);
+    color: white;
+    padding: 120px 0 60px;
+    text-align: center;
+    position: relative;
+}
+
+.blog-detail-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    opacity: 0.3;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.post-category {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+.post-title {
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 1px;
+}
+
+.post-meta {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 30px;
+}
+
+.post-excerpt {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    font-style: italic;
+}
+
+.blog-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.post-image {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    border-radius: 0;
+}
+
+.post-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.post-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 50px;
+}
+
+.post-content h2 {
+    font-size: 2rem;
+    font-weight: 300;
+    margin: 40px 0 20px;
+    color: #000;
+    font-family: 'Playfair Display', serif;
+}
+
+.post-content h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: 30px 0 15px;
+    color: #000;
+}
+
+.post-content p {
+    margin-bottom: 20px;
+}
+
+.post-content blockquote {
+    border-left: 4px solid #000;
+    padding-left: 30px;
+    margin: 30px 0;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.post-content ul, .post-content ol {
+    margin: 20px 0;
+    padding-left: 30px;
+}
+
+.post-content li {
+    margin-bottom: 10px;
+}
+
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.tag {
+    background: #f5f5f5;
+    color: #666;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 0;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.tag:hover {
+    background: #000;
+    color: white;
+}
+
+.post-share {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 50px;
+    padding: 20px 0;
+}
+
+.share-label {
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.share-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.share-btn {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ddd;
+    background: white;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 0;
+}
+
+.share-btn:hover {
+    background: #000;
+    color: white;
+    border-color: #000;
+}
+
+.author-section {
+    background: #f9f9f9;
+    padding: 40px;
+    margin-bottom: 50px;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.author-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.author-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.author-info h4 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.author-info p {
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.related-posts {
+    margin-top: 60px;
+}
+
+.related-title {
+    font-size: 2rem;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #000;
+    font-family: 'Playfair Display', serif;
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.related-card {
+    background: white;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    border-radius: 0;
+}
+
+.related-card:hover {
+    transform: translateY(-5px);
+}
+
+.related-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.related-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.related-content {
+    padding: 20px;
+}
+
+.related-category {
+    font-size: 0.8rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.related-title-text {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+    line-height: 1.3;
+    color: #000;
+}
+
+.related-meta {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+.back-to-blog {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.back-btn {
+    color: #666;
+    text-decoration: none;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    color: #000;
+    border-bottom-color: #000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .post-title {
+        font-size: 2rem;
+    }
+    
+    .post-image {
+        height: 250px;
+    }
+    
+    .author-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .post-share {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .share-buttons {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .blog-detail-hero {
+        padding: 80px 0 40px;
+    }
+    
+    .post-title {
+        font-size: 1.8rem;
+    }
+    
+    .blog-content {
+        padding: 40px 15px;
+    }
+    
+    .post-content {
+        font-size: 1rem;
+    }
+    
+    .post-content h2 {
+        font-size: 1.5rem;
+    }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Back to Blog -->
+<div class="back-to-blog">
+    <a href="{% url 'blog_list' %}" class="back-btn">← Back to Blog</a>
+</div>
+
+<!-- Hero Section -->
+<section class="blog-detail-hero">
+    <div class="hero-content">
+        <div class="post-category">{{ post.get_category_display }}</div>
+        <h1 class="post-title">{{ post.title }}</h1>
+        <div class="post-meta">
+            By {{ post.author.get_full_name|default:post.author.username }} • 
+            {{ post.published_at|date:"F d, Y" }} • 
+            {{ post.views }} views
+        </div>
+        <p class="post-excerpt">{{ post.excerpt }}</p>
+    </div>
+</section>
+
+<!-- Blog Content -->
+<div class="blog-content">
+    <!-- Featured Image -->
+    {% if post.featured_image %}
+    <div class="post-image">
+        <img src="{{ post.featured_image.url }}" alt="{{ post.title }}">
+    </div>
+    {% endif %}
+    
+    <!-- Post Content -->
+    <div class="post-content">
+        {{ post.content|linebreaks }}
+    </div>
+    
+    <!-- Additional Images -->
+    {% if post.images.all %}
+    <div class="post-gallery">
+        {% for image in post.images.all %}
+        <div class="gallery-image" style="margin-bottom: 30px;">
+            <img src="{{ image.image.url }}" alt="{{ image.alt_text|default:post.title }}" style="width: 100%; height: auto; border-radius: 0;">
+            {% if image.caption %}
+            <p style="text-align: center; font-style: italic; color: #666; margin-top: 10px;">{{ image.caption }}</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    
+    <!-- Tags -->
+    {% if post.get_tags_list %}
+    <div class="post-tags">
+        {% for tag in post.get_tags_list %}
+        <span class="tag">{{ tag }}</span>
+        {% endfor %}
+    </div>
+    {% endif %}
+    
+    <!-- Share Buttons -->
+    <div class="post-share">
+        <span class="share-label">Share this story:</span>
+        <div class="share-buttons">
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" class="share-btn" target="_blank">f</a>
+            <a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}&text={{ post.title }}" class="share-btn" target="_blank">t</a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ request.build_absolute_uri }}" class="share-btn" target="_blank">in</a>
+            <a href="https://pinterest.com/pin/create/button/?url={{ request.build_absolute_uri }}&media={{ post.featured_image.url|default:'' }}&description={{ post.title }}" class="share-btn" target="_blank">p</a>
+        </div>
+    </div>
+    
+    <!-- Author Section -->
+    <div class="author-section">
+        <div class="author-avatar">
+            {% if post.author.profile.profile_picture %}
+            <img src="{{ post.author.profile.profile_picture.url }}" alt="{{ post.author.get_full_name|default:post.author.username }}">
+            {% else %}
+            <img src="{% static 'blog/author-placeholder.jpg' %}" alt="{{ post.author.get_full_name|default:post.author.username }}" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div style="display: none; width: 100%; height: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">{{ post.author.username|first|upper }}</div>
+            {% endif %}
+        </div>
+        <div class="author-info">
+            <h4>{{ post.author.get_full_name|default:post.author.username }}</h4>
+            <p>Fashion writer and style enthusiast. Passionate about discovering the latest trends and sharing style inspiration with the Andreka community.</p>
+        </div>
+    </div>
+    
+    <!-- Related Posts -->
+    {% if related_posts %}
+    <div class="related-posts">
+        <h3 class="related-title">You Might Also Like</h3>
+        <div class="related-grid">
+            {% for related_post in related_posts %}
+            <article class="related-card">
+                <a href="{% url 'blog_detail' related_post.slug %}">
+                    <div class="related-image">
+                        {% if related_post.featured_image %}
+                        <img src="{{ related_post.featured_image.url }}" alt="{{ related_post.title }}">
+                        {% else %}
+                        <img src="{% static 'blog/placeholder-related.jpg' %}" alt="{{ related_post.title }}" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div style="display: none; width: 100%; height: 100%; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem;">Image</div>
+                        {% endif %}
+                    </div>
+                    <div class="related-content">
+                        <div class="related-category">{{ related_post.get_category_display }}</div>
+                        <h4 class="related-title-text">{{ related_post.title }}</h4>
+                        <div class="related-meta">{{ related_post.published_at|date:"M d, Y" }}</div>
+                    </div>
+                </a>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<script>
+// Smooth scrolling for internal links
+document.addEventListener('DOMContentLoaded', function() {
+    // Add reading progress indicator
+    const progressBar = document.createElement('div');
+    progressBar.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: #000;
+        z-index: 1000;
+        transition: width 0.3s ease;
+    `;
+    document.body.appendChild(progressBar);
+    
+    window.addEventListener('scroll', function() {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        progressBar.style.width = scrolled + '%';
+    });
+    
+    // Add smooth transitions
+    const style = document.createElement('style');
+    style.textContent = `
+        * {
+            scroll-behavior: smooth;
+        }
+    `;
+    document.head.appendChild(style);
+});
+</script>
+{% endblock %}

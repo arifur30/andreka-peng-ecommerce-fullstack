@@ -1,0 +1,438 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load product_filters %}
+
+{% block content %}
+<section id="hero" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; color: #333; padding: 40px 20px;">
+    <div class="texts">
+        <h4 style="font-size: 1.2rem; margin-bottom: 20px; font-weight: 300; color: #666; letter-spacing: 2px;">DISCOVER OUR COMPLETE COLLECTION</h4>
+        <h1 style="font-size: 4.5rem; margin-bottom: 20px; font-family: 'Montserrat', sans-serif; font-weight: 300; letter-spacing: 3px;">EXQUISITE ELEGANCE</h1>
+        <p style="font-size: 1.1rem; margin-bottom: 30px; color: #666; max-width: 600px; margin-left: auto; margin-right: auto;">Explore our curated selection of premium fashion items, each piece crafted with attention to detail and style.</p>
+    </div>
+</section>
+
+<!-- Swiper Carousel Section -->
+<section id="swiper-carousel" class="section-p1" style="background: #f8f9fa; padding: 80px 20px; overflow: hidden;">
+    <div class="swiper-container" style="max-width: 1400px; margin: 0 auto; position: relative;">
+        <!-- Swiper -->
+        <div class="swiper mySwiper" style="padding: 50px 0;">
+            <div class="swiper-wrapper">
+                {% for product in products %}
+                <div class="swiper-slide">
+                    <div class="product-card" style="
+                        background: {% cycle '#ff6b6b' '#4ecdc4' '#45b7d1' '#96ceb4' '#feca57' '#ff9ff3' '#54a0ff' '#5f27cd' %};
+                        border-radius: 20px;
+                        padding: 30px;
+                        box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+                        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        align-items: center;
+                        text-align: center;
+                        position: relative;
+                        overflow: hidden;
+                        color: white;
+                    ">
+                        <a href="{% url 'product_detail' product.slug %}" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; justify-content: space-between; align-items: center; height: 100%; width: 100%;">
+                            
+                            <!-- Heart Icon -->
+                            <div class="heart-icon" style="position: absolute; top: 20px; left: 20px; width: 40px; height: 40px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px); z-index: 10; opacity: 0; transition: opacity 0.3s ease;">
+                                <span class="material-symbols-outlined" style="font-size: 1.2rem; color: white;">
+                                    favorite
+                                </span>
+                            </div>
+                            
+                            <!-- Share Icon -->
+                            <div class="share-icon" style="position: absolute; top: 20px; right: 20px; width: 40px; height: 40px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px); z-index: 10; opacity: 0; transition: opacity 0.3s ease;">
+                                <span class="material-symbols-outlined" style="font-size: 1.2rem; color: white;">
+                                    share
+                                </span>
+                            </div>
+                            
+                            <!-- Product Image -->
+                            <div class="product-image-container" style="flex: 1; display: flex; align-items: center; justify-content: center; margin-top: 60px;">
+                                <img src="{{ product.image.url }}" alt="{{ product.name }}" style="max-width: 200px; max-height: 200px; object-fit: contain; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3)); transition: transform 0.3s ease;">
+                            </div>
+                            
+                            <!-- Product Info -->
+                            <div class="product-info" style="margin-top: 20px;">
+                                <h3 style="font-size: 1.4rem; font-weight: 600; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">{{ product.name|truncatechars:12 }}</h3>
+                                
+                                <!-- Price - Only show on center slide -->
+                                <div class="price-section" style="margin-bottom: 15px; opacity: 0; transition: opacity 0.3s ease;">
+                                    {% if product.original_price %}
+                                    <div style="margin-bottom: 5px;">
+                                        <span style="font-size: 1.8rem; font-weight: 700;">${{ product.price }}</span>
+                                        <span style="font-size: 1.2rem; text-decoration: line-through; opacity: 0.7; margin-left: 10px;">${{ product.original_price }}</span>
+                                    </div>
+                                    {% else %}
+                                    <div>
+                                        <span style="font-size: 1.8rem; font-weight: 700;">${{ product.price }}</span>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                
+                                <!-- Add to Cart Button - Only show on center slide -->
+                                <button class="add-to-cart-btn" onclick="addToCart({{ product.id }}, event)" style="
+                                    background: rgba(255,255,255,0.2);
+                                    border: 2px solid rgba(255,255,255,0.3);
+                                    color: white;
+                                    padding: 12px 24px;
+                                    border-radius: 25px;
+                                    font-size: 0.9rem;
+                                    font-weight: 600;
+                                    cursor: pointer;
+                                    transition: all 0.3s ease;
+                                    backdrop-filter: blur(10px);
+                                    text-transform: uppercase;
+                                    letter-spacing: 1px;
+                                    opacity: 0;
+                                    transform: translateY(20px);
+                                ">
+                                    {% if product.stock > 0 %}+ Add to Cart{% else %}Out of Stock{% endif %}
+                                </button>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="swiper-slide">
+                    <div style="text-align: center; padding: 60px 20px; color: #666;">
+                        <h3 style="margin-bottom: 20px;">No products available at the moment</h3>
+                        <p>Check back soon for our latest collection!</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+            <!-- Navigation Arrows -->
+            <div class="swiper-button-next" style="color: #333; background: white; border-radius: 50%; width: 50px; height: 50px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);"></div>
+            <div class="swiper-button-prev" style="color: #333; background: white; border-radius: 50%; width: 50px; height: 50px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);"></div>
+            
+            <!-- Pagination -->
+            <div class="swiper-pagination" style="position: relative; margin-top: 40px;"></div>
+        </div>
+    </div>
+</section>
+
+<section id="features" class="section-p1" style="background: white; padding: 60px 20px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto;">
+        <div class="feature-box" style="text-align: center;">
+            <img src="{% static 'feature1.png' %}" alt="" height="60" width="90" style="margin-bottom: 20px;">
+            <h3 style="color: #333; margin-bottom: 10px;">Premium Quality</h3>
+            <p style="color: #666; font-size: 0.9rem;">Handpicked materials for lasting comfort</p>
+        </div>
+        <div class="feature-box" style="text-align: center;">
+            <img src="{% static 'onlineorder.png' %}" alt="" height="60" width="90" style="margin-bottom: 20px;">
+            <h3 style="color: #333; margin-bottom: 10px;">Fast Delivery</h3>
+            <p style="color: #666; font-size: 0.9rem;">Quick and reliable shipping worldwide</p>
+        </div>
+        <div class="feature-box" style="text-align: center;">
+            <img src="{% static 'Promotions.png' %}" alt="" height="60" width="90" style="margin-bottom: 20px;">
+            <h3 style="color: #333; margin-bottom: 10px;">Exclusive Designs</h3>
+            <p style="color: #666; font-size: 0.9rem;">Unique pieces you won't find elsewhere</p>
+        </div>
+        <div class="feature-box" style="text-align: center;">
+            <img src="{% static 'savemoney.png' %}" alt="" height="60" width="90" style="margin-bottom: 20px;">
+            <h3 style="color: #333; margin-bottom: 10px;">Best Prices</h3>
+            <p style="color: #666; font-size: 0.9rem;">Competitive pricing with great value</p>
+        </div>
+    </div>
+</section>
+
+<section id="newsletter" class="section-p1" style="background: #f8f9fa; padding: 60px 20px;">
+    <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+        <h4 style="font-size: 1.5rem; margin-bottom: 15px; color: #333;">Sign Up for Newsletter</h4>
+        <p style="color: #666; margin-bottom: 30px;">Get E-mail updates about our latest shop and <span style="color: #667eea; font-weight: 600;">special offers.</span></p>
+        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+            <input type="text" placeholder="Enter your email" style="flex: 1; min-width: 250px; padding: 15px 20px; border: 2px solid #e9ecef; border-radius: 30px; font-size: 1rem; outline: none;">
+            <button class="banner-button" style="background: #667eea; color: white; padding: 15px 30px; border: none; border-radius: 30px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">Sign Up</button>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Swiper Styles */
+.swiper-slide {
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.swiper-slide-active .product-card {
+    transform: scale(1.1);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.swiper-slide-active .product-card .heart-icon {
+    opacity: 1;
+}
+
+.swiper-slide-active .product-card .share-icon {
+    opacity: 1;
+}
+
+.swiper-slide-active .product-card .price-section {
+    opacity: 1;
+}
+
+.swiper-slide-active .product-card .add-to-cart-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.swiper-slide-active .product-card .product-image-container img {
+    transform: scale(1.1);
+}
+
+/* Hover Effects */
+.product-card:hover .heart-icon {
+    opacity: 1;
+}
+
+.product-card:hover .share-icon {
+    opacity: 1;
+}
+
+.product-card:hover .product-image-container img {
+    transform: scale(1.05);
+}
+
+.add-to-cart-btn:hover {
+    background: rgba(255,255,255,0.3) !important;
+    border-color: rgba(255,255,255,0.5) !important;
+    transform: translateY(-2px);
+}
+
+.banner-button:hover {
+    background: #5a6fd8;
+    transform: translateY(-2px);
+}
+
+/* Swiper Navigation */
+.swiper-button-next:after,
+.swiper-button-prev:after {
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background: #f8f9fa;
+    transform: scale(1.1);
+}
+
+/* Swiper Pagination */
+.swiper-pagination-bullet {
+    background: #ccc;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    background: #667eea;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .swiper-slide {
+        height: 350px;
+    }
+    
+    .swiper-slide-active .product-card {
+        transform: scale(1.05);
+    }
+    
+    .swiper-button-next,
+    .swiper-button-prev {
+        display: none;
+    }
+    
+    #hero h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .swiper-slide {
+        height: 300px;
+    }
+    
+    .product-card {
+        padding: 20px;
+    }
+    
+    .product-card .product-image-container img {
+        max-width: 150px;
+        max-height: 150px;
+    }
+}
+</style>
+
+<!-- Swiper JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const swiper = new Swiper('.mySwiper', {
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        loop: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+        },
+        coverflowEffect: {
+            rotate: 0,
+            stretch: 80,
+            depth: 200,
+            modifier: 1,
+            slideShadows: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        breakpoints: {
+            320: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                coverflowEffect: {
+                    rotate: 0,
+                    stretch: 50,
+                    depth: 100,
+                    modifier: 1,
+                    slideShadows: true,
+                }
+            },
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 30,
+                coverflowEffect: {
+                    rotate: 0,
+                    stretch: 60,
+                    depth: 150,
+                    modifier: 1,
+                    slideShadows: true,
+                }
+            },
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 40,
+                coverflowEffect: {
+                    rotate: 0,
+                    stretch: 80,
+                    depth: 200,
+                    modifier: 1,
+                    slideShadows: true,
+                }
+            }
+        }
+    });
+    
+    // Pause autoplay on hover
+    const swiperContainer = document.querySelector('.mySwiper');
+    swiperContainer.addEventListener('mouseenter', () => {
+        swiper.autoplay.stop();
+    });
+    
+    swiperContainer.addEventListener('mouseleave', () => {
+        swiper.autoplay.start();
+    });
+});
+</script>
+{% endblock %}
+
+<script>
+function addToCart(productId, event) {
+    event.preventDefault();
+    event.stopPropagation();
+    
+    fetch('{% url "add_to_cart" %}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': '{{ csrf_token }}'
+        },
+        body: JSON.stringify({
+            'product_id': productId,
+            'quantity': 1
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            showNotification(data.message, 'success');
+            updateCartCount(data.cart_total);
+        } else {
+            showNotification(data.message, 'error');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        showNotification('Error adding to cart', 'error');
+    });
+}
+
+function showNotification(message, type) {
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: ${type === 'success' ? '#4CAF50' : '#f44336'};
+        color: white;
+        padding: 15px 20px;
+        border-radius: 5px;
+        z-index: 1000;
+        font-weight: 500;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    `;
+    notification.textContent = message;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.remove();
+    }, 3000);
+}
+
+function updateCartCount(count) {
+    const cartIcon = document.querySelector('.fa-cart-shopping');
+    if (cartIcon && count > 0) {
+        let badge = cartIcon.parentElement.querySelector('.cart-badge');
+        if (!badge) {
+            badge = document.createElement('span');
+            badge.className = 'cart-badge';
+            badge.style.cssText = `
+                position: absolute;
+                top: -8px;
+                right: -8px;
+                background: #e74c3c;
+                color: white;
+                border-radius: 50%;
+                width: 20px;
+                height: 20px;
+                font-size: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: bold;
+            `;
+            cartIcon.parentElement.style.position = 'relative';
+            cartIcon.parentElement.appendChild(badge);
+        }
+        badge.textContent = count;
+    }
+}
+</script>

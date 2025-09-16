@@ -192,7 +192,7 @@ header {
     margin-top: 20px;
 }
 
-.bkash-checkout, .nagad-pay {
+.sslcommerz-checkout, .nagad-pay {
     padding: 10px 20px;
     background-color: #fff;
     border: 1px solid #ccc;
@@ -200,6 +200,6 @@ header {
     font-size: 14px;
 }
 
-.bkash-checkout:hover, .nagad-pay:hover {
+.sslcommerz-checkout:hover, .nagad-pay:hover {
     opacity: 0.8;
 }

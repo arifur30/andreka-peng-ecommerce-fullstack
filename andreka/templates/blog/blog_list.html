@@ -1,0 +1,553 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Fashion Blog - Andreka{% endblock %}
+
+{% block styles %}
+<style>
+/* Vogue-inspired Blog Styles */
+.blog-hero {
+    background: linear-gradient(135deg, #000 0%, #333 100%);
+    color: white;
+    padding: 120px 0 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    opacity: 0.3;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.blog-hero h1 {
+    font-size: 4rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+    margin-bottom: 1rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.blog-hero p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    max-width: 600px;
+    margin: 0 auto;
+    letter-spacing: 1px;
+}
+
+.blog-nav {
+    background: white;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.blog-categories {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.category-link {
+    text-decoration: none;
+    color: #666;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    padding: 10px 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.category-link:hover,
+.category-link.active {
+    color: #000;
+    border-bottom-color: #000;
+}
+
+.blog-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.featured-section {
+    margin-bottom: 80px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+    color: #000;
+    font-family: 'Playfair Display', serif;
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.featured-main {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 0;
+}
+
+.featured-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.featured-main:hover img {
+    transform: scale(1.05);
+}
+
+.featured-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    padding: 40px;
+}
+
+.featured-category {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.featured-title {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    font-family: 'Playfair Display', serif;
+}
+
+.featured-excerpt {
+    font-size: 1rem;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+.featured-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.featured-side-item {
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.featured-side-item:last-child {
+    border-bottom: none;
+}
+
+.side-image {
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.side-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.side-content h3 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    line-height: 1.3;
+    color: #000;
+}
+
+.side-content p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+.side-meta {
+    font-size: 0.8rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.blog-card {
+    background: white;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 0;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.card-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.card-category {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 8px 15px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.card-content {
+    padding: 30px;
+}
+
+.card-meta {
+    font-size: 0.8rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.card-title {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+    line-height: 1.3;
+    color: #000;
+    font-family: 'Playfair Display', serif;
+}
+
+.card-excerpt {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.tag {
+    background: #f5f5f5;
+    color: #666;
+    padding: 4px 12px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 0;
+}
+
+.read-more {
+    color: #000;
+    text-decoration: none;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.read-more:hover {
+    border-bottom-color: #000;
+}
+
+.load-more {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.load-more-btn {
+    background: #000;
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.load-more-btn:hover {
+    background: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .blog-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .featured-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .featured-main {
+        height: 300px;
+    }
+    
+    .featured-title {
+        font-size: 1.5rem;
+    }
+    
+    .posts-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .blog-categories {
+        gap: 15px;
+    }
+    
+    .category-link {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .blog-hero {
+        padding: 80px 0 60px;
+    }
+    
+    .blog-hero h1 {
+        font-size: 2rem;
+        letter-spacing: 1px;
+    }
+    
+    .featured-overlay {
+        padding: 20px;
+    }
+    
+    .card-content {
+        padding: 20px;
+    }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="blog-hero">
+    <div class="hero-content">
+        <h1>FASHION BLOG</h1>
+        <p>Discover the latest trends, style inspirations, and fashion insights from the world of Andreka</p>
+    </div>
+</section>
+
+<!-- Blog Navigation -->
+<nav class="blog-nav">
+    <div class="nav-container">
+        <div class="blog-categories">
+            <a href="{% url 'blog_list' %}" class="category-link {% if not current_category %}active{% endif %}">All</a>
+            {% for category_key, category_name in categories %}
+            <a href="{% url 'blog_list' %}?category={{ category_key }}" class="category-link {% if current_category == category_key %}active{% endif %}">{{ category_name }}</a>
+            {% endfor %}
+        </div>
+    </div>
+</nav>
+
+<!-- Blog Content -->
+<div class="blog-content">
+    <!-- Featured Section -->
+    {% if featured_posts %}
+    <section class="featured-section">
+        <h2 class="section-title">Featured Stories</h2>
+        
+        <div class="featured-grid">
+            <!-- Main Featured Post -->
+            <div class="featured-main">
+                {% with featured_posts.0 as main_post %}
+                <a href="{% url 'blog_detail' main_post.slug %}">
+                    {% if main_post.featured_image %}
+                    <img src="{{ main_post.featured_image.url }}" alt="{{ main_post.title }}">
+                    {% else %}
+                    <img src="{% static 'blog/placeholder-featured.jpg' %}" alt="{{ main_post.title }}" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div style="display: none; width: 100%; height: 100%; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">Featured Image</div>
+                    {% endif %}
+                    <div class="featured-overlay">
+                        <div class="featured-category">{{ main_post.get_category_display }}</div>
+                        <h3 class="featured-title">{{ main_post.title }}</h3>
+                        <p class="featured-excerpt">{{ main_post.excerpt }}</p>
+                    </div>
+                </a>
+                {% endwith %}
+            </div>
+            
+            <!-- Sidebar Featured Posts -->
+            <div class="featured-sidebar">
+                {% for post in featured_posts|slice:"1:" %}
+                <div class="featured-side-item">
+                    <div class="side-image">
+                        <a href="{% url 'blog_detail' post.slug %}">
+                            {% if post.featured_image %}
+                            <img src="{{ post.featured_image.url }}" alt="{{ post.title }}">
+                            {% else %}
+                            <img src="{% static 'blog/placeholder-side.jpg' %}" alt="{{ post.title }}" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <div style="display: none; width: 100%; height: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem;">Image</div>
+                            {% endif %}
+                        </a>
+                    </div>
+                    <div class="side-content">
+                        <div class="side-meta">{{ post.get_category_display }}</div>
+                        <h3><a href="{% url 'blog_detail' post.slug %}" style="text-decoration: none; color: inherit;">{{ post.title }}</a></h3>
+                        <p>{{ post.excerpt|truncatewords:15 }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+    
+    <!-- All Posts Section -->
+    <section class="posts-section">
+        <h2 class="section-title">Latest Stories</h2>
+        
+        <div class="posts-grid">
+            {% for post in posts %}
+            <article class="blog-card">
+                <div class="card-image">
+                    <a href="{% url 'blog_detail' post.slug %}">
+                        {% if post.featured_image %}
+                        <img src="{{ post.featured_image.url }}" alt="{{ post.title }}">
+                        {% else %}
+                        <img src="{% static 'blog/placeholder-card.jpg' %}" alt="{{ post.title }}" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div style="display: none; width: 100%; height: 100%; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 1rem;">Blog Image</div>
+                        {% endif %}
+                    </a>
+                    <div class="card-category">{{ post.get_category_display }}</div>
+                </div>
+                
+                <div class="card-content">
+                    <div class="card-meta">{{ post.published_at|date:"F d, Y" }} • {{ post.views }} views</div>
+                    <h3 class="card-title">
+                        <a href="{% url 'blog_detail' post.slug %}" style="text-decoration: none; color: inherit;">{{ post.title }}</a>
+                    </h3>
+                    <p class="card-excerpt">{{ post.excerpt }}</p>
+                    
+                    {% if post.get_tags_list %}
+                    <div class="card-tags">
+                        {% for tag in post.get_tags_list %}
+                        <span class="tag">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    
+                    <a href="{% url 'blog_detail' post.slug %}" class="read-more">Read More</a>
+                </div>
+            </article>
+            {% empty %}
+            <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px;">
+                <h3 style="font-size: 1.5rem; color: #666; margin-bottom: 20px;">No posts found</h3>
+                <p style="color: #999;">Check back soon for the latest fashion stories and trends.</p>
+            </div>
+            {% endfor %}
+        </div>
+        
+        {% if posts %}
+        <div class="load-more">
+            <button class="load-more-btn">Load More Stories</button>
+        </div>
+        {% endif %}
+    </section>
+</div>
+
+<script>
+// Load more functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const loadMoreBtn = document.querySelector('.load-more-btn');
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', function() {
+            // This would typically load more posts via AJAX
+            // For now, we'll just show a message
+            this.textContent = 'More stories coming soon...';
+            this.disabled = true;
+        });
+    }
+    
+    // Smooth scrolling for category links
+    const categoryLinks = document.querySelectorAll('.category-link');
+    categoryLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Add smooth transition effect
+            document.body.style.opacity = '0.8';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 200);
+        });
+    });
+});
+</script>
+{% endblock %}

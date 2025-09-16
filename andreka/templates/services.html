@@ -1,0 +1,802 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Our Services - Andreka{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="services-hero">
+    <div class="hero-content">
+        <h1>Our Premium Services</h1>
+        <p>Discover the excellence behind Andreka's commitment to quality, innovation, and customer satisfaction</p>
+    </div>
+</section>
+
+<!-- Services Overview -->
+<section class="services-overview">
+    <div class="container">
+        <div class="section-header">
+            <h2>What We Offer</h2>
+            <p>Comprehensive solutions tailored to meet your every need</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <img src="{% static 'services/ecommerce-icon.png' %}" alt="E-commerce Solutions" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="icon-fallback" style="display: none;">🛍️</div>
+                </div>
+                <h3>E-commerce Excellence</h3>
+                <p>Premium online shopping experience with secure payment processing and seamless user interface</p>
+                <ul>
+                    <li>SSLCOMMERZ Payment Gateway</li>
+                    <li>Secure Order Processing</li>
+                    <li>Real-time Inventory Management</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <img src="{% static 'services/delivery-icon.png' %}" alt="Fast Delivery" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="icon-fallback" style="display: none;">🚚</div>
+                </div>
+                <h3>Lightning Fast Delivery</h3>
+                <p>Quick and reliable delivery service across Bangladesh with real-time tracking</p>
+                <ul>
+                    <li>Same-day Delivery (Dhaka)</li>
+                    <li>Next-day Delivery (Major Cities)</li>
+                    <li>Free Shipping on Orders Over ৳500</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <img src="{% static 'services/quality-icon.png' %}" alt="Quality Assurance" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="icon-fallback" style="display: none;">⭐</div>
+                </div>
+                <h3>Quality Assurance</h3>
+                <p>Rigorous quality control ensuring every product meets our high standards</p>
+                <ul>
+                    <li>100% Authentic Products</li>
+                    <li>Quality Inspection Process</li>
+                    <li>Money-back Guarantee</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <img src="{% static 'services/support-icon.png' %}" alt="Customer Support" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="icon-fallback" style="display: none;">🎧</div>
+                </div>
+                <h3>24/7 Customer Support</h3>
+                <p>Round-the-clock assistance to ensure your shopping experience is smooth</p>
+                <ul>
+                    <li>Live Chat Support</li>
+                    <li>Phone Support</li>
+                    <li>Email Support</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Product Quality Showcase -->
+<section class="quality-showcase">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our Product Quality Standards</h2>
+            <p>Every product undergoes rigorous quality checks before reaching you</p>
+        </div>
+        
+        <div class="quality-grid">
+            <div class="quality-item">
+                <div class="quality-image">
+                    <img src="{% static 'services/quality-check-1.jpg' %}" alt="Quality Check Process" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="image-placeholder" style="display: none;">
+                        <div class="placeholder-content">
+                            <span class="placeholder-icon">🔍</span>
+                            <p>Quality Inspection</p>
+                        </div>
+                    </div>
+                </div>
+                <h3>Inspection Process</h3>
+                <p>Every product is carefully inspected for authenticity, condition, and packaging quality.</p>
+            </div>
+            
+            <div class="quality-item">
+                <div class="quality-image">
+                    <img src="{% static 'services/quality-check-2.jpg' %}" alt="Packaging Standards" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="image-placeholder" style="display: none;">
+                        <div class="placeholder-content">
+                            <span class="placeholder-icon">📦</span>
+                            <p>Premium Packaging</p>
+                        </div>
+                    </div>
+                </div>
+                <h3>Premium Packaging</h3>
+                <p>Products are packaged with care using eco-friendly materials to ensure safe delivery.</p>
+            </div>
+            
+            <div class="quality-item">
+                <div class="quality-image">
+                    <img src="{% static 'services/quality-check-3.jpg' %}" alt="Certification" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="image-placeholder" style="display: none;">
+                        <div class="placeholder-content">
+                            <span class="placeholder-icon">🏆</span>
+                            <p>Certified Quality</p>
+                        </div>
+                    </div>
+                </div>
+                <h3>Certified Quality</h3>
+                <p>All products come with authenticity certificates and quality guarantees.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Customer Reviews -->
+<section class="reviews-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>What Our Customers Say</h2>
+            <p>Real feedback from satisfied customers across Bangladesh</p>
+        </div>
+        
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="customer-info">
+                        <div class="customer-avatar">
+                            <img src="{% static 'services/customer-1.jpg' %}" alt="Customer" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <div class="avatar-fallback" style="display: none;">👤</div>
+                        </div>
+                        <div class="customer-details">
+                            <h4>Fatima Rahman</h4>
+                            <span>Dhaka, Bangladesh</span>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                    </div>
+                </div>
+                <p>"Excellent service! My order arrived faster than expected and the product quality was outstanding. Highly recommended!"</p>
+            </div>
+            
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="customer-info">
+                        <div class="customer-avatar">
+                            <img src="{% static 'services/customer-2.jpg' %}" alt="Customer" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <div class="avatar-fallback" style="display: none;">👤</div>
+                        </div>
+                        <div class="customer-details">
+                            <h4>Ahmed Hassan</h4>
+                            <span>Chittagong, Bangladesh</span>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                    </div>
+                </div>
+                <p>"The payment process was smooth and secure. Customer support was very helpful when I had questions. Great experience overall!"</p>
+            </div>
+            
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="customer-info">
+                        <div class="customer-avatar">
+                            <img src="{% static 'services/customer-3.jpg' %}" alt="Customer" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <div class="avatar-fallback" style="display: none;">👤</div>
+                        </div>
+                        <div class="customer-details">
+                            <h4>Nusrat Jahan</h4>
+                            <span>Sylhet, Bangladesh</span>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                    </div>
+                </div>
+                <p>"Love the variety of products and the easy checkout process. Delivery was on time and packaging was perfect!"</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Community Impact -->
+<section class="community-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our Community Impact</h2>
+            <p>Making a positive difference in Bangladesh's e-commerce landscape</p>
+        </div>
+        
+        <div class="community-grid">
+            <div class="community-card">
+                <div class="community-icon">
+                    <img src="{% static 'services/employment-icon.png' %}" alt="Employment" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="icon-fallback" style="display: none;">👥</div>
+                </div>
+                <h3>Local Employment</h3>
+                <p>Creating job opportunities for local communities across Bangladesh</p>
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Jobs Created</div>
+            </div>
+            
+            <div class="community-card">
+                <div class="community-icon">
+                    <img src="{% static 'services/delivery-network-icon.png' %}" alt="Delivery Network" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="icon-fallback" style="display: none;">🚛</div>
+                </div>
+                <h3>Delivery Network</h3>
+                <p>Expanding delivery services to remote areas of Bangladesh</p>
+                <div class="stat-number">64</div>
+                <div class="stat-label">Districts Covered</div>
+            </div>
+            
+            <div class="community-card">
+                <div class="community-icon">
+                    <img src="{% static 'services/sustainability-icon.png' %}" alt="Sustainability" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="icon-fallback" style="display: none;">🌱</div>
+                </div>
+                <h3>Eco-Friendly Practices</h3>
+                <p>Committed to sustainable packaging and green delivery methods</p>
+                <div class="stat-number">95%</div>
+                <div class="stat-label">Eco-Friendly Packaging</div>
+            </div>
+            
+            <div class="community-card">
+                <div class="community-icon">
+                    <img src="{% static 'services/support-local-icon.png' %}" alt="Support Local" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="icon-fallback" style="display: none;">🏪</div>
+                </div>
+                <h3>Supporting Local Businesses</h3>
+                <p>Partnering with local suppliers and manufacturers</p>
+                <div class="stat-number">200+</div>
+                <div class="stat-label">Local Partners</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Technology & Innovation -->
+<section class="technology-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Technology & Innovation</h2>
+            <p>Cutting-edge technology powering your shopping experience</p>
+        </div>
+        
+        <div class="tech-grid">
+            <div class="tech-item">
+                <div class="tech-image">
+                    <img src="{% static 'services/ai-recommendations.jpg' %}" alt="AI Recommendations" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="image-placeholder" style="display: none;">
+                        <div class="placeholder-content">
+                            <span class="placeholder-icon">🤖</span>
+                            <p>AI-Powered</p>
+                        </div>
+                    </div>
+                </div>
+                <h3>AI-Powered Recommendations</h3>
+                <p>Smart algorithms that suggest products based on your preferences and browsing history.</p>
+            </div>
+            
+            <div class="tech-item">
+                <div class="tech-image">
+                    <img src="{% static 'services/mobile-app.jpg' %}" alt="Mobile App" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="image-placeholder" style="display: none;">
+                        <div class="placeholder-content">
+                            <span class="placeholder-icon">📱</span>
+                            <p>Mobile First</p>
+                        </div>
+                    </div>
+                </div>
+                <h3>Mobile-First Design</h3>
+                <p>Optimized for mobile devices with responsive design and fast loading times.</p>
+            </div>
+            
+            <div class="tech-item">
+                <div class="tech-image">
+                    <img src="{% static 'services/security.jpg' %}" alt="Security" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="image-placeholder" style="display: none;">
+                        <div class="placeholder-content">
+                            <span class="placeholder-icon">🔒</span>
+                            <p>Secure</p>
+                        </div>
+                    </div>
+                </div>
+                <h3>Advanced Security</h3>
+                <p>Bank-level security with SSL encryption and secure payment processing.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Ready to Experience Excellence?</h2>
+            <p>Join thousands of satisfied customers who trust Andreka for their shopping needs</p>
+            <div class="cta-buttons">
+                <a href="{% url 'home' %}" class="btn btn-primary">Start Shopping</a>
+                <a href="{% url 'about' %}" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Services Page Styles */
+.services-hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.services-overview {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.service-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.service-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+}
+
+.service-icon img {
+    width: 40px;
+    height: 40px;
+    filter: brightness(0) invert(1);
+}
+
+.icon-fallback {
+    font-size: 2rem;
+    color: white;
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.service-card ul {
+    text-align: left;
+    list-style: none;
+    padding: 0;
+}
+
+.service-card li {
+    padding: 5px 0;
+    color: #555;
+    position: relative;
+    padding-left: 20px;
+}
+
+.service-card li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #28a745;
+    font-weight: bold;
+}
+
+.quality-showcase {
+    padding: 80px 0;
+}
+
+.quality-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.quality-item {
+    text-align: center;
+}
+
+.quality-image {
+    width: 100%;
+    height: 250px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.quality-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.placeholder-content {
+    text-align: center;
+    color: white;
+}
+
+.placeholder-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.placeholder-content p {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.quality-item h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.quality-item p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.reviews-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.review-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.customer-info {
+    display: flex;
+    align-items: center;
+}
+
+.customer-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 15px;
+}
+
+.customer-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar-fallback {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.customer-details h4 {
+    margin: 0;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.customer-details span {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.rating .stars {
+    color: #ffc107;
+    font-size: 1.2rem;
+}
+
+.review-card p {
+    color: #555;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+.community-section {
+    padding: 80px 0;
+}
+
+.community-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.community-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.community-card:hover {
+    transform: translateY(-5px);
+}
+
+.community-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+}
+
+.community-icon img {
+    width: 40px;
+    height: 40px;
+    filter: brightness(0) invert(1);
+}
+
+.community-card h3 {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.community-card p {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #667eea;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    color: #666;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.technology-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.tech-item {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.tech-item:hover {
+    transform: translateY(-5px);
+}
+
+.tech-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.tech-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tech-item h3 {
+    font-size: 1.3rem;
+    color: #333;
+    margin: 20px 20px 10px;
+}
+
+.tech-item p {
+    color: #666;
+    margin: 0 20px 20px;
+    line-height: 1.6;
+}
+
+.cta-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.cta-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: white;
+    color: #667eea;
+}
+
+.btn-primary:hover {
+    background: #f8f9fa;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: #667eea;
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .quality-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .community-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    
+    .tech-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+</style>
+{% endblock %}
