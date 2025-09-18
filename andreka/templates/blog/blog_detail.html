@@ -431,7 +431,7 @@
             <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" class="share-btn" target="_blank">f</a>
             <a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}&text={{ post.title }}" class="share-btn" target="_blank">t</a>
             <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ request.build_absolute_uri }}" class="share-btn" target="_blank">in</a>
-            <a href="https://pinterest.com/pin/create/button/?url={{ request.build_absolute_uri }}&media={{ post.featured_image.url|default:'' }}&description={{ post.title }}" class="share-btn" target="_blank">p</a>
+            <a href="https://pinterest.com/pin/create/button/?url={{ request.build_absolute_uri }}&media={% if post.featured_image %}{{ post.featured_image.url }}{% endif %}&description={{ post.title }}" class="share-btn" target="_blank">p</a>
         </div>
     </div>
     
