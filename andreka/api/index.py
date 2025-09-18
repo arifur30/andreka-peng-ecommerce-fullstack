@@ -11,3 +11,4 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'andreka.settings')
 
 # Get WSGI application
 application = get_wsgi_application()
+

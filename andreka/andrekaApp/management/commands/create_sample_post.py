@@ -37,3 +37,4 @@ class Command(BaseCommand):
         )
         
         self.stdout.write(self.style.SUCCESS(f'Created blog post: {post.title}'))
+

@@ -26,3 +26,4 @@ new_post = BlogPost.objects.create(
 )
 
 print(f"Created blog post: {new_post.title}")
+

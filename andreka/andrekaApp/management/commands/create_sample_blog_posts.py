@@ -283,3 +283,4 @@ class Command(BaseCommand):
             self.stdout.write(
                 self.style.WARNING('No new blog posts were created. All posts already exist.')
             )
+

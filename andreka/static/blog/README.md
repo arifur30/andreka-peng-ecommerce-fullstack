@@ -24,3 +24,4 @@ This directory contains placeholder images for the fashion blog. Replace these w
 - Beauty and makeup looks
 - Lifestyle and editorial shots
 - Behind-the-scenes content
+

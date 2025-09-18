@@ -703,10 +703,15 @@ def sslcommerz_payment_cancel(request):
         messages.error(request, f"An error occurred: {str(e)}")
         return redirect('checkout')
 
-@login_required
 def order_success(request, order_id):
     """Display order success page"""
-    order = get_object_or_404(Order, id=order_id, user=request.user)
+    order = get_object_or_404(Order, id=order_id)
+    
+    # If user is logged in, verify they own the order
+    if request.user.is_authenticated and order.user != request.user:
+        messages.error(request, "You don't have permission to view this order.")
+        return redirect('home')
+    
     payment = order.payments.filter(status='completed').first()
     
     context = {
@@ -715,10 +720,15 @@ def order_success(request, order_id):
     }
     return render(request, 'order_success.html', context)
 
-@login_required
 def order_failed(request, order_id):
     """Display order failed page"""
-    order = get_object_or_404(Order, id=order_id, user=request.user)
+    order = get_object_or_404(Order, id=order_id)
+    
+    # If user is logged in, verify they own the order
+    if request.user.is_authenticated and order.user != request.user:
+        messages.error(request, "You don't have permission to view this order.")
+        return redirect('home')
+    
     payment = order.payments.first()
     
     context = {

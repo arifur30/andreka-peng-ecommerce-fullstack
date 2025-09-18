@@ -36,3 +36,4 @@ This directory contains images for the services page. Replace the placeholder fi
 - Use PNG for icons with transparency
 - Use JPG for photos
 - Consider using WebP format for better compression
+
